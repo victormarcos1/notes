@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+</head>
+<body>
+    <h1>Notes App</h1>
+
+    <form id="noteForm">
+        <input type="text" id="noteInput" placeholder="Input Text">
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul id="notesList"></ul>
+
+    <script>
+        document.getElementById('noteForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent the default form submission behavior
+
+            const noteInput = document.getElementById('noteInput').value;
+
+            if (noteInput.trim() !== '') {
+                const notesList = document.getElementById('notesList');
+                const listItem = document.createElement('li');
+                listItem.textContent = noteInput;
+                notesList.appendChild(listItem);
+                document.getElementById('noteInput').value = '';  // Clear the input field after adding the note
+            }
+        });
+    </script>
+</body>
+</html>
